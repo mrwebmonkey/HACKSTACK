@@ -60,36 +60,24 @@
 </head>
 <body>
   <div class="container py-5">
-    <h2 class="mb-4 text-center">Web Development Projects</h2>
+    <h2 class="mb-4 text-center"><%= categories.title %> Projects</h2>
     <ul class="project-list">
-      
-      <li>
-        <div class="project-title">Smart Expense Tracker</div>
-        <p class="project-description">
-          A web app to track daily expenses with categories and visual analytics using MongoDB, Express, and Chart.js.
-        </p>
-        <a href="project-detail.html" class="view-link">View Details →</a>
-      </li>
-
-      <li>
-        <div class="project-title">DevLink Portfolio Generator</div>
-        <p class="project-description">
-          A tool to generate clean, responsive portfolios from templates with real-time preview and easy export.
-        </p>
-        <a href="#" class="view-link">View Details →</a>
-      </li>
-
-      <li>
-        <div class="project-title">HackHub Forum</div>
-        <p class="project-description">
-          A full-stack discussion forum for developers to post, reply, and explore hackathon ideas in real-time.
-        </p>
-        <a href="#" class="view-link">View Details →</a>
-      </li>
-
+      <% for(let i=0; i<categories.projects.length; i++) { %>
+        <li>
+          <div class="project-title"><%= categories.projects[i].title %></div>
+          <p class="project-description">
+            <%= categories.projects[i].description %>
+          </p>
+          <form action="/category/<%= categories._id %>/projects/<%= categories.projects[i].projectId %>" method="GET" class="mt-auto">  
+            <button class="btn btn-outline-secondary mt-auto">View Details →</button>
+          </form>
+        </li>
+      <% } %>
     </ul>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
 </html>
+
+

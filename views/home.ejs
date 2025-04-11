@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>HackStack - Hackathon Project Ideas</title>
-  <link rel="stylesheet" href="./style.css" />
+  <link rel="stylesheet" href="/css/style.css" />
   <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;700&family=Fira+Code&display=swap" rel="stylesheet">
   <link rel="icon" type="image/x-icon" href="./image/spotify.svg">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
@@ -14,7 +14,7 @@
     
     <section class="hero-section">
         <video autoplay muted loop playsinline>
-            <source src="./video/hero_2_video.mp4" type="video/mp4" />
+            <source src="/video/hero_2_video.mp4" type="video/mp4" />
             Your browser does not support the video tag.
         </video>
 
@@ -22,12 +22,28 @@
             <h1>HackStack</h1>
             <nav>
                 <div class="search_container">
-                    <div class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></div>
-                    <input type="text" class="search_input" placeholder="Search by tech, topic, or category">
+                    <!-- <div class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                    <input type="text" class="search_input" placeholder="Search by category"> -->
+                    <form action="/search" method="GET" class="search_container">
+                        <div class="search_icon"><i class="fa-solid fa-magnifying-glass"></i></div>
+                        <input
+                          type="text"
+                          class="search_input"
+                          name="q"
+                          placeholder="Search by category or project"
+                          required
+                        >
+                    </form>  
                 </div>
-                <button class="boton-elegante">Categorys</button>
-                <button class="boton-elegante">Features</button>
-                <button class="boton-elegante">About</button>
+                <form action="/hackstack/category" method="GET">
+                    <button class="boton-elegante">Categorys</button>
+                </form>
+                <form action="/hackstack/features" method="GET">
+                    <button class="boton-elegante">Features</button>
+                </form>
+                <form action="/hackstack/about" method="GET">
+                    <button class="boton-elegante">About</button>
+                </form>
             </nav>
         </header>
 
